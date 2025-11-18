@@ -52,5 +52,5 @@ bool display_poll_events() {
 }
 
 void display_render(const uint8_t screen[SCREEN_H][SCREEN_W]) {
-  SDL_Set
+
 }
