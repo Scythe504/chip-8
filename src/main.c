@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "chip8.h"
+#include "display.h"
 
 
 int main(int argc, char **argv) {
@@ -9,18 +10,22 @@ int main(int argc, char **argv) {
   }
 
   chip8_init();
-
+  display_init();
   char *romPath = argv[1];
 
   chip8_load_rom(romPath);
 
-  while (true)
-  {
-    /* code */
-    chip8_execute();
+  display_loop();
 
-    chip8_draw();
-  }
+  display_cleanup();
+  // while (true)
+  // {
+  //   /* code */
+    // chip8_execute();
+
+  //   chip8_draw();
+  // }
+
 
   return 0;
 }

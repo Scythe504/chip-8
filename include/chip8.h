@@ -21,4 +21,9 @@ void chip8_setkeys();
 void chip8_tick();
 void chip8_draw();
 
+
+typedef uint8_t ScreenRow[SCREEN_W];
+const ScreenRow* chip8_get_screen();
+bool chip8_can_draw();
+
 #endif // __CHIP_8_H__
