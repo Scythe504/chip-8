@@ -17,13 +17,15 @@ void chip8_init(); //initializes chip8 vars
 uint16_t chip8_fetch();
 void chip8_execute();
 void chip8_load_rom(char *romPath); // loads rom from the given filepath
-void chip8_setkeys();
+void chip8_set_draw_false();
 void chip8_tick();
 void chip8_draw();
+void chip8_key_down(uint8_t key);
+void chip8_key_up(uint8_t key);
 
 
 typedef uint8_t ScreenRow[SCREEN_W];
-const ScreenRow* chip8_get_screen();
+const uint8_t* chip8_get_screen();
 bool chip8_can_draw();
 
 #endif // __CHIP_8_H__
