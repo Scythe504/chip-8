@@ -11,15 +11,18 @@ if(WIN32)
   # Windows (native or cross-compile)
   set(SDL2_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build-windows/SDL2-2.28.5/x86_64-w64-mingw32/include)
   set(SDL2_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/build-windows/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2.a)
+  set(SDL2MAIN_LIB ${CMAKE_CURRENT_SOURCE_DIR}/build-windows/SDL2-2.28.5/x86_64-w64-mingw32/lib/libSDL2main.a)
   include_directories(${SDL2_INCLUDE_DIR})
   
   add_executable(chip8
     src/main.c
     src/chip8.c
     src/display.c
+    src/audio.c
   )
   
   target_link_libraries(chip8 PRIVATE 
+    ${SDL2MAIN_LIB}
     ${SDL2_LIBRARY} 
     m
     setupapi
@@ -36,6 +39,7 @@ else()
     src/main.c
     src/chip8.c
     src/display.c
+    src/audio.c
   )
   
   target_link_libraries(chip8 PRIVATE SDL2::SDL2 SDL2::SDL2main m)

@@ -1,6 +1,8 @@
 /build
 /out
 main
-/.vscode
 /CMakeFiles
 /build-windows
+/build-windows-out
+/build-linux
+/build-linux-out

@@ -1,4 +1,5 @@
 #include "chip8.h"
+#include "audio.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -462,7 +463,9 @@ void chip8_tick() {
   if (delay_timer > 0) --delay_timer;
   if (sound_timer > 0) {
     --sound_timer;
-    // printf("BEEP BOOP!\n");
+    audio_beep_on();
+  } else {
+    audio_beep_off();
   }
 }
 
